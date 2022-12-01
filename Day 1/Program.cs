@@ -91,6 +91,9 @@ namespace Day_1
             // Sort the list
             calories.Sort();
 
+            // Print the top elf's calories
+            Console.WriteLine("Top Elf: " + calories[calories.Count - 1]);
+
             // Print the top three elves' total calories
             Console.WriteLine(
                 "The  total calories are: "
