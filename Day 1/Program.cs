@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 /*
@@ -39,6 +40,15 @@ The fifth Elf is carrying one food item with 10000 Calories.
 In case the Elves get hungry and need extra snacks, they need to know which Elf to ask: they'd like to know how many Calories are being carried by the Elf carrying the most Calories. In the example above, this is 24000 (carried by the fourth Elf).
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+
+--- Part Two ---
+By the time you calculate the answer to the Elves' question, they've already realized that the Elf carrying the most Calories of food might eventually run out of snacks.
+
+To avoid this unacceptable situation, the Elves would instead like to know the total Calories carried by the top three Elves carrying the most Calories. That way, even if one of those Elves runs out of snacks, they still have two backups.
+
+In the example above, the top three Elves are the fourth Elf (with 24000 Calories), then the third Elf (with 11000 Calories), then the fifth Elf (with 10000 Calories). The sum of the Calories carried by these three elves is 45000.
+
+Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?
 */
 
 namespace Day_1
@@ -50,11 +60,11 @@ namespace Day_1
             // Read the input file
             string[] input = File.ReadAllLines(@"input.txt");
 
+            // Create a list to store the calories
+            List<int> calories = new List<int>();
+
             // Create a variable to store the total calories
             int totalCalories = 0;
-
-            // Create a variable to store the highest calories
-            int highestCalories = 0;
 
             // Loop through the input
             for (int i = 0; i < input.Length; i++)
@@ -62,24 +72,34 @@ namespace Day_1
                 // If the line is empty, we've reached the end of the current elf's inventory
                 if (input[i] == "")
                 {
-                    // If the total calories is higher than the highest calories, set the highest calories to the total calories
-                    if (totalCalories > highestCalories)
-                    {
-                        highestCalories = totalCalories;
-                    }
+                    // Add the totalCalories to the list
+                    calories.Add(totalCalories);
 
-                    // Reset the total calories
+                    // Reset totalCalories
                     totalCalories = 0;
                 }
                 else
                 {
-                    // Add the calories to the total calories
+                    // Add the line to the elf's total
                     totalCalories += int.Parse(input[i]);
                 }
             }
 
-            // Output the highest calories
-            Console.WriteLine("The highest calories is: " + highestCalories);
+            // Add the last elf's total to the list
+            calories.Add(totalCalories);
+
+            // Sort the list
+            calories.Sort();
+
+            // Print the top three elves' total calories
+            Console.WriteLine(
+                "The  total calories are: "
+                    + (
+                        calories[calories.Count - 1]
+                        + calories[calories.Count - 2]
+                        + calories[calories.Count - 3]
+                    )
+            );
 
             // Wait for input
             Console.ReadLine();
