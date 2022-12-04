@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 /*
 --- Day 3: Rucksack Reorganization ---
@@ -39,7 +40,44 @@ namespace Day_3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string[] input = File.ReadAllLines(@"input.txt");
+
+            int sum = 0;
+
+            // Loop through each line
+            foreach (string line in input)
+            {
+                // Split the line into two halves
+                string firstHalf = line.Substring(0, line.Length / 2);
+                string secondHalf = line.Substring(line.Length / 2);
+
+                // Loop through each character in the first half
+                foreach (char c in firstHalf)
+                {
+                    // If the second half contains the same character, add the priority to the sum
+                    if (secondHalf.Contains(c))
+                    {
+                        sum += GetPriority(c);
+                        break;
+                    }
+                }
+            }
+
+            // Print the sum
+            Console.WriteLine("Part 1: " + sum);
+
+            Console.ReadLine();
+        }
+
+        // Returns the priority of a character
+        static int GetPriority(char c)
+        {
+            // If the character is lowercase, return the ASCII value minus 96
+            if (char.IsLower(c))
+                return c - 'a' + 1;
+            // If the character is uppercase, return the ASCII value minus 38
+            else
+                return c - 'A' + 27;
         }
     }
 }
