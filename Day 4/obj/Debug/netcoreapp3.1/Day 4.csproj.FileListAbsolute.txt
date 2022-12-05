@@ -1,0 +1,14 @@
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.exe
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.deps.json
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.runtimeconfig.json
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.runtimeconfig.dev.json
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.dll
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\bin\Debug\netcoreapp3.1\Day 4.pdb
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.csproj.AssemblyReference.cache
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.AssemblyInfoInputs.cache
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.AssemblyInfo.cs
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.csproj.CoreCompileInputs.cache
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.dll
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.pdb
+C:\Users\matth\Projects\Advent of Code 2022\Day 4\obj\Debug\netcoreapp3.1\Day 4.genruntimeconfig.cache
