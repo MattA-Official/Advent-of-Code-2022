@@ -31,6 +31,20 @@ nppdvjthqldpwncqszvftbrmjlhg: first marker after character 6
 nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg: first marker after character 10
 zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw: first marker after character 11
 How many characters need to be processed before the first start-of-packet marker is detected?
+
+--- Part Two ---
+Your device's communication system is correctly detecting packets, but still isn't working. It looks like it also needs to look for messages.
+
+A start-of-message marker is just like a start-of-packet marker, except it consists of 14 distinct characters rather than 4.
+
+Here are the first positions of start-of-message markers for all of the above examples:
+
+mjqjpqmgbljsphdztnvjfqwrcgsmlb: first marker after character 19
+bvwbjplbgvbhsrlpgdmjqwftvncz: first marker after character 23
+nppdvjthqldpwncqszvftbrmjlhg: first marker after character 23
+nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg: first marker after character 29
+zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw: first marker after character 26
+How many characters need to be processed before the first start-of-message marker is detected?
 */
 
 namespace Day_6
@@ -43,7 +57,7 @@ namespace Day_6
             string input = File.ReadAllText(@"input.txt");
 
             // Variable to store the number of characters processed
-            int charactersProcessed = 0;
+            int startOfPacket = 0;
 
             // Loop through the input
             for (int i = 0; i < input.Length - 4; i++)
@@ -59,12 +73,45 @@ namespace Day_6
                 )
                 {
                     // Add the number of characters processed to the variable
-                    charactersProcessed = i + 4;
+                    startOfPacket = i + 4;
                     break;
                 }
             }
 
-            Console.WriteLine("Part 1: " + charactersProcessed);
+            Console.WriteLine("Part 1: " + startOfPacket);
+
+            // Reset the variable
+            int startOfMessage = 0;
+
+            // Loop through the input
+            for (int i = 0; i < input.Length - 14; i++)
+            {
+                // Add the next 14 characters to a string
+                string next14Characters = input.Substring(i, 14);
+                bool repeat = false;
+
+                // Check if there are no repeating characters in the next 14 characters
+                for (int j = 0; j < next14Characters.Length - 1; j++)
+                {
+                    for (int k = j + 1; k < next14Characters.Length; k++)
+                    {
+                        if (next14Characters[j] == next14Characters[k])
+                        {
+                            repeat = true;
+                        }
+                    }
+                }
+
+                if (!repeat)
+                {
+                    startOfMessage = i + 14;
+                    break;
+                }
+
+                repeat = false;
+            }
+
+            Console.WriteLine("Part 2: " + startOfMessage);
 
             Console.ReadLine();
         }
